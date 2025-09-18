@@ -1,4 +1,4 @@
-import Header from '~/components/Layout/DefaultLayout/Header';
+import Header from '~/layouts/components/Header';
 
 interface HeaderOnlyProps {
     children: React.ReactElement;
