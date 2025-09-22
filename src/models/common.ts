@@ -3,3 +3,9 @@ export interface RouteInformation {
     component: () => React.ReactElement;
     layout?: (({ children }: { children: React.ReactElement }) => React.ReactElement) | null;
 }
+
+export interface MenuItem {
+    title: string | null;
+    to: string;
+    children: MenuItem[]; // đệ quy
+}

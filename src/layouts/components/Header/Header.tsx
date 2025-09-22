@@ -6,6 +6,8 @@ import { faHeart, faBell } from '@fortawesome/free-regular-svg-icons';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { CartIcon } from '~/components/Icons';
+import MultiSubNavigationMenu from '~/layouts/components/MultiSubNavigationMenu';
+import { exploreMenuData } from '~/appData';
 
 const cx = classNames.bind(styles);
 
@@ -15,8 +17,12 @@ function Header() {
             <Link to="/" className={cx('header-logo')}>
                 <img src={images.logo} alt="Logo image" width="91" height="34" loading="lazy" />
             </Link>
-            <nav className={cx('nav-item')}>
-                <Link to="">Explore</Link>
+            <nav className={cx('nav-item', 'nav-explore')}>
+                <Link className={cx('nav-link')} to="">
+                    Explore
+                </Link>
+
+                <MultiSubNavigationMenu menuFieldData={exploreMenuData} className={cx('multi-nav-menu')} />
             </nav>
 
             <div className={cx('nav-search')}>
@@ -24,37 +30,43 @@ function Header() {
             </div>
 
             <div className={cx('nav-item')}>
-                <Link to="">My Business</Link>
+                <Link className={cx('nav-link')} to="">
+                    My Business
+                </Link>
             </div>
 
             <div className={cx('nav-item')}>
-                <Link to="">Teach on App</Link>
+                <Link className={cx('nav-link')} to="">
+                    Teach on App
+                </Link>
             </div>
 
             <div className={cx('nav-item')}>
-                <Link to="">My learning</Link>
+                <Link className={cx('nav-link')} to="">
+                    My learning
+                </Link>
             </div>
 
             <div className={cx('nav-item')}>
-                <Link to="">
+                <Link className={cx('nav-link')} to="">
                     <FontAwesomeIcon icon={faHeart} className={cx('nav-icon')} />
                 </Link>
             </div>
 
             <div className={cx('nav-item')}>
-                <Link to="">
-                    <CartIcon width="auto" height="2rem" className={cx('nav-icon')} />
+                <Link className={cx('nav-link')} to="">
+                    <CartIcon width="100%" height="2rem" className={cx('nav-icon')} />
                 </Link>
             </div>
 
             <div className={cx('nav-item')}>
-                <Link to="">
+                <Link className={cx('nav-link')} to="">
                     <FontAwesomeIcon icon={faBell} className={cx('nav-icon')} />
                 </Link>
             </div>
 
             <div className={cx('nav-item')}>
-                <Link to="">
+                <Link className={cx('nav-link')} to="">
                     <div className={cx('avatar')}>HT</div>
                 </Link>
             </div>
