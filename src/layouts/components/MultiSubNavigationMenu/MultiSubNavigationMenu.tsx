@@ -1,12 +1,13 @@
 import classNames from 'classnames/bind';
 import { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
-
-import styles from './MultiSubNavigationMenu.module.scss';
-import type { MenuItem } from '~/models';
-import Divider from '~/components/Divider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
+import type { MenuItem } from '~/models';
+import Divider from '~/components/Divider';
+import PopperWrapper from '~/components/PopperWrapper';
+import styles from './MultiSubNavigationMenu.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -30,6 +31,7 @@ function MultiSubNavigationMenu({ menuFieldData, className }: MultiSubNavigation
 
     */
     const [history, setHistory] = useState<{ data: MenuItem[] }[]>([{ data: menuFieldData }]);
+    const [activePath, setActivePath] = useState<[number, number][]>([]);
 
     // hàm dùng để render tất cả các cấp hiện có của menu
     const renderMenu = () =>
@@ -42,21 +44,36 @@ function MultiSubNavigationMenu({ menuFieldData, className }: MultiSubNavigation
                         })}
                         key={parentIndex}
                     >
-                        {menuLevelData.data.map((item, index) => (
-                            <Fragment key={index}>
-                                {index > 0 && <Divider />}
+                        {menuLevelData.data.map((item, linkGroupIndex) => (
+                            <Fragment key={linkGroupIndex}>
+                                {linkGroupIndex > 0 && <Divider />}
                                 {item.title && <h2 className={cx('nav-heading')}>{item.title}</h2>}
                                 <ul className={cx('nav-list')}>
-                                    {item.children.map((child, index) => (
-                                        <li key={index}>
+                                    {item.children.map((child, linkIndex) => (
+                                        <li key={linkIndex}>
                                             <Link
-                                                className={cx(`nav-link`)}
+                                                className={cx(`nav-link`, {
+                                                    'active-link':
+                                                        activePath[parentIndex]?.[0] === linkGroupIndex &&
+                                                        activePath[parentIndex]?.[1] === linkIndex,
+                                                })}
                                                 onMouseOver={() => {
                                                     setHistory((pre) => {
                                                         return [
                                                             ...pre.slice(0, parentIndex + 1),
                                                             { data: child.children },
                                                         ];
+                                                    });
+
+                                                    // Lưu lại index của nhánh menu đang active, không lưu index của
+                                                    // node mà không có children
+                                                    setActivePath((pre) => {
+                                                        return child.children.length > 0
+                                                            ? [
+                                                                  ...pre.slice(0, parentIndex),
+                                                                  [linkGroupIndex, linkIndex],
+                                                              ]
+                                                            : [...pre.slice(0, parentIndex)];
                                                     });
                                                 }}
                                                 to={child.to}
@@ -81,9 +98,9 @@ function MultiSubNavigationMenu({ menuFieldData, className }: MultiSubNavigation
             );
         });
     return (
-        <div className={cx('wrapper', className)}>
+        <PopperWrapper className={cx(className)}>
             <div className={cx('content')}>{renderMenu()}</div>
-        </div>
+        </PopperWrapper>
     );
 }
 

@@ -4,13 +4,18 @@
     --font-family: 'TikTokFont', san-serif;
 
     --text-color: #2a2b3f;
-    --white-color: #fff;
-    --black-color: #16161d;
     --heading-color: #595c73;
     --border-color: #d1d2e0;
 
+    --white-color: #fff;
+    --black-color: #16161d;
+    --purple-color: #6d28d2;
+
     --btn-focus-color: #6d28d2;
     --btn-focus-background-color: color-mix(in oklch, oklch(48.41% 0.2342 293.93deg) 12%, transparent);
+    --primary-btn-focus-background-color: #892de1;
+
+    --btn-border-radius: 0.4rem;
 }
 
 * {
@@ -26,7 +31,9 @@ html {
 body {
     font-family: var(--font-family);
     font-size: 1.6rem;
-    line-height: 1.5;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--text-color);
     text-rendering: optimizeSpeed;
 }
 
