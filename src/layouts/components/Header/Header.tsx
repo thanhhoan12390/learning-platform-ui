@@ -5,10 +5,11 @@ import { faHeart, faBell } from '@fortawesome/free-regular-svg-icons';
 
 import images from '~/assets/images';
 import { CartIcon } from '~/components/Icons';
-import MultiSubNavigationMenu from '~/layouts/components/MultiSubNavigationMenu';
+import MultiSubNavigationMenu from '~/components/MultiSubNavigationMenu';
 import { exploreMenuData } from '~/appData';
 import FlexibleButton from '~/components/FlexibleButton';
 import PopperWrapper from '~/components/PopperWrapper';
+import SearchBar from '../SearchBar';
 import styles from './Header.module.scss'; // luôn để import styles ở vị trí cuối cùng để ghi đè CSS của các component ở trên
 
 const cx = classNames.bind(styles);
@@ -27,9 +28,11 @@ function Header() {
                 <MultiSubNavigationMenu menuFieldData={exploreMenuData} className={cx('multi-nav-menu')} />
             </nav>
 
-            <div className={cx('nav-search')}>
+            {/* <div className={cx('nav-search')}>
                 <input name="header search" type="text" />
-            </div>
+            </div> */}
+
+            <SearchBar />
 
             <div className={cx('nav-item', 'nav-business')}>
                 <Link className={cx('nav-link')} to="">

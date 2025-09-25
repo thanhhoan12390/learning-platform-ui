@@ -9,3 +9,10 @@ export interface MenuItem {
     to: string;
     children: MenuItem[]; // đệ quy
 }
+
+export interface ListParams {
+    offset?: number;
+    limit?: number;
+
+    [key: string]: any;
+}

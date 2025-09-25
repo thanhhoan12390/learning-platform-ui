@@ -97,6 +97,7 @@ function MultiSubNavigationMenu({ menuFieldData, className }: MultiSubNavigation
                 )
             );
         });
+
     return (
         <PopperWrapper className={cx(className)}>
             <div className={cx('content')}>{renderMenu()}</div>
