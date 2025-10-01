@@ -10,6 +10,10 @@
 
     &:hover .sub-nav-content {
         display: block;
+        /*
+        Mặc dù .sub-nav-content có vị trí (position: absolute;) phụ thuộc vào thẻ có (position: relative;) cấp cao hơn
+        thẻ này, nhưng vì .sub-nav-content vẫn là con của thẻ này nên css selector vẫn hoạt động bình thường
+        */
     }
 }
 

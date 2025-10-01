@@ -1,3 +1,35 @@
 .wrapper {
     background: var(--white-color);
 }
+
+.banner-float-content {
+    padding: 2.4rem;
+    background-color: var(--white-color);
+    border-radius: 0.4rem;
+
+    .banner-heading {
+        display: -webkit-box !important;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: block-axis;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        max-inline-size: 80rem;
+        padding-block: 0;
+        margin-block: 0 0.8rem;
+        font-size: 3.2rem;
+        font-weight: 600;
+    }
+
+    p {
+        display: -webkit-box !important;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: block-axis;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        padding: 0;
+        font-size: 1.4rem;
+        font-weight: 400;
+    }
+}
