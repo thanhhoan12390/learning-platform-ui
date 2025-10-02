@@ -14,6 +14,8 @@ interface FlexibleButtonBaseProps {
     outline?: boolean;
     text?: boolean;
     rounded?: boolean;
+    underlined?: boolean;
+    hover?: boolean;
     disabled?: boolean;
     small?: boolean;
     large?: boolean;
@@ -41,6 +43,8 @@ function FlexibleButton({
     outline = false,
     text = false,
     rounded = false,
+    underlined = false,
+    hover = false,
     disabled = false,
     small = false,
     large = false,
@@ -80,6 +84,8 @@ function FlexibleButton({
         outline,
         text,
         rounded,
+        underlined,
+        hover,
         disabled,
         small,
         large,

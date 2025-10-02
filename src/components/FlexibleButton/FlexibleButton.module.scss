@@ -68,6 +68,18 @@
     }
 }
 
+.underlined {
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+    text-decoration-color: oklch(67.76% 0.2011 301.5deg);
+}
+
+.hover {
+    &:hover {
+        background-color: var(--btn-focus-background-color);
+    }
+}
+
 .primary {
     color: var(--white-color);
     background-color: var(--purple-color);
@@ -86,7 +98,7 @@
 
 // Button sizes
 .small {
-    block-size: 3.2rem;
+    block-size: 2.8rem;
 }
 
 .large {
