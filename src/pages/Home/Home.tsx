@@ -5,6 +5,7 @@ import Divider from '~/components/Divider';
 import NavBar from '~/components/NavBar';
 import ImageSlider from '~/components/ImageSlider';
 import FlexibleButton from '~/components/FlexibleButton/FlexibleButton';
+import CardCarousel from '~/components/CardCarousel/CardCarousel';
 import images from '~/assets/images';
 import styles from './Home.module.scss';
 
@@ -28,6 +29,7 @@ function Home() {
 
             <div className={cx('home-container')}>
                 <div className={cx('home-content')}>
+                    {/** banner */}
                     <div className={cx('banner-container')}>
                         <div className={cx('welcome-area')}>
                             <div style={{ width: '6.4rem', height: '6.4rem' }} className={cx('default-avatar')}>
@@ -83,6 +85,20 @@ function Home() {
                                 },
                             ]}
                         />
+                    </div>
+
+                    {/** page container */}
+                    <div className={cx('page-container')}>
+                        {/** advertising banner */}
+                        <div className={cx('page-advertising')}></div>
+
+                        {/** courses section */}
+                        <div className={cx('courses-section')}>
+                            <h2 className={cx('courses-heading')}>What to learn next</h2>
+                            <CardCarousel />
+                            <CardCarousel />
+                            <CardCarousel />
+                        </div>
                     </div>
                 </div>
             </div>
