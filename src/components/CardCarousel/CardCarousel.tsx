@@ -4,11 +4,17 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import { useRef, useState, useEffect } from 'react';
 
 import CourseCard from '../CourseCard';
+import type { Course } from '~/models';
 import styles from './CardCarousel.module.scss';
 
 const cx = classNames.bind(styles);
 
-function CardCarousel() {
+interface CardCarouselProps {
+    carouselHeading: string;
+    courseData: Course[];
+}
+
+function CardCarousel({ carouselHeading, courseData }: CardCarouselProps) {
     const [visiblePrevBtn, setVisiblePrevBtn] = useState(false);
     const trackRef = useRef<HTMLDivElement>(null);
     const cardRef = useRef<HTMLDivElement>(null);
@@ -51,12 +57,12 @@ function CardCarousel() {
 
     return (
         <div className={cx('carousel-wrapper')}>
-            <h2 className={cx('carousel-heading')}>Based on your recent searches</h2>
+            <h2 className={cx('carousel-heading')}>{carouselHeading}</h2>
             <section className={cx('carousel-container')}>
                 <div ref={trackRef} className={cx('carousel-track')}>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19].map((item) => (
-                        <div ref={cardRef} key={item} className={cx('card-wrapper')}>
-                            <CourseCard courseRating={4.1} />
+                    {courseData.map((course) => (
+                        <div ref={cardRef} key={course.courseId} className={cx('card-wrapper')}>
+                            <CourseCard course={course} />
                         </div>
                     ))}
                 </div>

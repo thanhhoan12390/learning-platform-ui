@@ -1,22 +1,23 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 import Popover from '../Popover/';
 import StarRating from '../StarRating';
-import styles from './CourseCard.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import FlexibleButton from '../FlexibleButton/FlexibleButton';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import type { Course } from '~/models';
+import styles from './CourseCard.module.scss';
 
 const cx = classNames.bind(styles);
 
 interface CourseCardProps {
-    courseRating: number;
+    course: Course;
 }
 
-function CourseCard({ courseRating }: CourseCardProps) {
+function CourseCard({ course }: CourseCardProps) {
     const [open, setOpen] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
 
@@ -24,22 +25,19 @@ function CourseCard({ courseRating }: CourseCardProps) {
         <div className={cx('wrapper')} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
             <div ref={cardRef} className={cx('course-card-wrapper')}>
                 <div className={cx('course-img')}>
-                    <img src="https://img-c.udemycdn.com/course/480x270/5187436_cf1e_3.jpg" alt="course image" />
+                    <img src={course.imageUrl} alt="course image" />
                 </div>
                 <div className={cx('course-content')}>
                     <h3 className={cx('course-heading')}>
-                        <Link to="">English Pronunciation - Complete Guide to English Speaking</Link>
+                        <Link to="">{course.title}</Link>
                     </h3>
-                    <div className={cx('course-instructor')}>
-                        Francis Carlisle: Last Minute English Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Dolores, magni?
-                    </div>
+                    <div className={cx('course-instructor')}>{course.instructor}</div>
                     <div className={cx('course-rating')}>
-                        <span className={cx('rating-number')}>{courseRating}</span>
-                        <StarRating rating={courseRating} />
-                        <span className={cx('rating-count')}>(6,976)</span>
+                        <span className={cx('rating-number')}>{course.rating.toFixed(1)}</span>
+                        <StarRating rating={course.rating} />
+                        <span className={cx('rating-count')}>({course.ratingCount})</span>
                     </div>
-                    <div className={cx('course-price')}>₫1,629,000</div>
+                    <div className={cx('course-price')}>{course.price}</div>
                 </div>
             </div>
 

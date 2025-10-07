@@ -1,5 +1,10 @@
 .wrapper {
-    background-color: transparent;
+    cursor: pointer;
+
+    &:hover .course-img img {
+        transition: opacity linear 100ms;
+        opacity: 0.8;
+    }
 }
 
 .course-card-wrapper {

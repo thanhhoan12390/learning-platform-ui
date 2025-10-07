@@ -10,9 +10,23 @@
 }
 
 .header-logo {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    padding-inline-end: 0.8rem;
+    justify-content: center;
+    block-size: 4rem;
+    padding-block: 0;
+    padding-inline: 1.2rem;
+    margin-block: 1.2rem;
+    margin-inline: 0;
+
+    img {
+        inline-size: 100%;
+        max-inline-size: 100%;
+        block-size: 100%;
+        vertical-align: middle;
+        object-fit: contain;
+        transition: opacity linear 100ms;
+    }
 }
 
 .nav-explore {

@@ -7,6 +7,7 @@ import ImageSlider from '~/components/ImageSlider';
 import FlexibleButton from '~/components/FlexibleButton/FlexibleButton';
 import CardCarousel from '~/components/CardCarousel/CardCarousel';
 import images from '~/assets/images';
+import { courseData } from '~/appData';
 import styles from './Home.module.scss';
 
 const cx = classNames.bind(styles);
@@ -90,14 +91,17 @@ function Home() {
                     {/** page container */}
                     <div className={cx('page-container')}>
                         {/** advertising banner */}
-                        <div className={cx('page-advertising')}></div>
+                        <div className={cx('page-advertising')}>
+                            <span>Training 2 or more people?</span>
+                            <span>Get your team access to top 30,000+ courses</span>
+                        </div>
 
                         {/** courses section */}
                         <div className={cx('courses-section')}>
                             <h2 className={cx('courses-heading')}>What to learn next</h2>
-                            <CardCarousel />
-                            <CardCarousel />
-                            <CardCarousel />
+                            <CardCarousel carouselHeading="Recommended for you" courseData={courseData} />
+                            <CardCarousel carouselHeading="Short and sweet courses for you" courseData={courseData} />
+                            <CardCarousel carouselHeading="Newest courses in Data Science" courseData={courseData} />
                         </div>
                     </div>
                 </div>

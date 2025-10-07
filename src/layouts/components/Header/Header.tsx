@@ -18,7 +18,7 @@ function Header() {
     return (
         <div className={cx('wrapper')}>
             <Link to="/" className={cx('header-logo')}>
-                <img src={images.logo} alt="Logo image" width="91" height="34" loading="lazy" />
+                <img src={images.logo} alt="Logo image" loading="lazy" />
             </Link>
             <nav className={cx('nav-item', 'nav-explore')}>
                 <Link className={cx('nav-link')} to="">

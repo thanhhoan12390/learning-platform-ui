@@ -10,6 +10,16 @@ export interface MenuItem {
     children: MenuItem[]; // đệ quy
 }
 
+export interface Course {
+    courseId: number;
+    imageUrl: string;
+    title: string;
+    instructor: string;
+    rating: number;
+    ratingCount: string;
+    price: string;
+}
+
 export interface ListParams {
     offset?: number;
     limit?: number;

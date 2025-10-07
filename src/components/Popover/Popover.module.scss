@@ -5,7 +5,7 @@
     display: block;
     transform: scale(1);
     opacity: 1;
-    animation: pop-over-open 100ms cubic-bezier(0.2, 0, 0.38, 0.9) forwards;
+    animation: pop-over-open 100ms cubic-bezier(0.2, 0, 0.38, 0.9) 150ms both;
 }
 
 .popover-container {
