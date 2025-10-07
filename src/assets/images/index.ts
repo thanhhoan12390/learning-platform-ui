@@ -23,6 +23,11 @@ import courseImg16 from '~/assets/images/courseImgs/course-img-16.webp';
 import courseImg17 from '~/assets/images/courseImgs/course-img-17.webp';
 import courseImg18 from '~/assets/images/courseImgs/course-img-18.webp';
 
+import eventbriteLogo from '~/assets/images/eventbrite-light-logo.svg';
+import nasdaqLogo from '~/assets/images/nasdaq-light-logo.svg';
+import netappLogo from '~/assets/images/netapp-light-logo.svg';
+import volkswagenLogo from '~/assets/images/volkswagen-light-logo.svg';
+
 const images = {
     logo,
     searchDefaultImg,
@@ -47,6 +52,10 @@ const images = {
     courseImg16,
     courseImg17,
     courseImg18,
+    eventbriteLogo,
+    volkswagenLogo,
+    netappLogo,
+    nasdaqLogo,
 };
 
 export default images;

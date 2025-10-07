@@ -16,7 +16,7 @@ const cx = classNames.bind(styles);
 
 function Header() {
     return (
-        <div className={cx('wrapper')}>
+        <div className={cx('header-wrapper')}>
             <Link to="/" className={cx('header-logo')}>
                 <img src={images.logo} alt="Logo image" loading="lazy" />
             </Link>
